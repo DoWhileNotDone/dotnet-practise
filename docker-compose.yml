@@ -1,0 +1,32 @@
+version: '3'
+services:
+    asp_net: 
+        container_name: asp_net
+        image: davegthemighty/dotnet-dev:latest
+        networks: 
+            - named_network
+        ports:
+            - "6000:5000"
+            - "6001:5001"   
+        volumes:
+            - $PWD:/app
+        depends_on:
+            - "postgresql_db"
+    postgresql_db:    
+        container_name: postgresql_db
+        image: postgres:latest
+        environment: 
+            - POSTGRES_PASSWORD=postgres
+        networks: 
+            - named_network
+        ports:
+            - "5432:5432"
+        volumes:
+            - /Users/daveg/work/development/personal/docker/volumes/postgres:/var/lib/postgresql/data
+networks:
+    named_network:
+        driver: bridge
+
+
+
+

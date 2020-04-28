@@ -12,6 +12,6 @@ namespace webapp.PostgresSQL
             { }
 
             protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
-                => optionsBuilder.UseNpgsql("Host=postgres;Database=mydb;Username=myuser;Password=mypass");
+                => optionsBuilder.UseNpgsql("Host=postgresql_db;Database=mydb;Username=myuser;Password=mypass");
     }
 }
